@@ -1,0 +1,32 @@
+{
+  "name": "budget-app",
+  "version": "1.0.0",
+  "description": "A Vue.js and Node.js Budget Manager Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garr1s0n/budget-app.git"
+  },
+  "author": "Gary Wilpizeski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garr1s0n/budget-app/issues"
+  },
+  "homepage": "https://github.com/garr1s0n/budget-app#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "module-alias": "^2.0.2",
+    "mongoose": "^4.12.5",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1"
+  }
+}
