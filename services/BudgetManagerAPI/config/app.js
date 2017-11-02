@@ -2,8 +2,8 @@ const express = require('express'),
       app = express(), 
       bodyParser = require('body-parser'), 
       mongoose = require('mongoose'), 
-      morgan = require('morgan'), c
-      onsign = require('consign'), 
+      morgan = require('morgan'), 
+      consign = require('consign'), 
       cors = require('cors'), 
       passport = require('passport'),
       passportConfig = require('./passport')(passport),
@@ -19,3 +19,11 @@ app.use(cors());
 app.use(passport.initialize());
 
 app.set('budgetsecret', config.secret);
+
+consign({ cwd: 'services'})
+    .include('BudgetManagerAPI/app/setup')
+    .then('BudgetManagerAPI/app/api')
+    .then('BudgetManagerAPI/app/routes')
+    .into(app);
+
+module.exports = app;
