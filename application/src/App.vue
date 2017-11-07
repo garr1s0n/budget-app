@@ -17,6 +17,7 @@ export default {
 
   body {
     background: url('./assets/images/background.jpg') no-repeat center fixed;
+    font-family: 'Roboto', sans-serif;
     &:after {
       content: '';
       position: fixed;

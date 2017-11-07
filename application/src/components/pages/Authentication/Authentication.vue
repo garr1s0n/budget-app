@@ -21,8 +21,8 @@
                       required>
         </v-text-field>
 
-        <v-btn flat color="light-blue lighten-1" @click.native="signUpVisible = true">Create account</v-btn>
-        <v-btn color="light-blue lighten-1" @click.native="submitAuthentication()">Login</v-btn>
+        <v-btn block flat color="light-blue lighten-1" @click.native="signUpVisible = true">Create account</v-btn>
+        <v-btn block color="light-blue lighten-1" @click.native="submitAuthentication()">Login</v-btn>
       </v-form>
     </div>
 
@@ -51,7 +51,7 @@
       </v-form>
     </div>
 
-    <v-snackbar timeout="6000"
+    <v-snackbar :timeout="timeout"
                 bottom="bottom"
                 color="red lighten-1"
                 v-model="snackbar">
@@ -71,6 +71,7 @@
         signUpVisible: false,
         loginPasswordVisible: false,
         signUpPasswordVisible: false,
+        timeout: 6000,
         rules: [ (value) => !!value || 'This field is required' ],
         credentials: {
           username: '',
@@ -87,10 +88,33 @@
       submitAuthentication () {
         Authentication.authenticate(this, this.credentials, '/')
       },
-
-      submitSignup () {
+      submitSignUp () {
         Authentication.signup(this, this.newUser, '/')
       }
     }
   }
 </script>
+
+<style lang="scss">
+  @import "./../../../assets/styles";
+  .l-auth {
+    background-color: $background-color;
+    padding: 15px;
+    margin: 45px auto;
+    min-width: 272px;
+    max-width: 320px;
+    animation: bounceIn 1s forwards ease;
+    label, input, .icon {
+      color: #29b6f6!important;
+    }
+    .input-group__details {
+      &:before {
+        background-color: $border-color-input !important;
+      }
+    }
+  }
+  .l-signup {
+    @extend .l-auth;
+    animation: slideInFromLeft 1s forwards ease;
+  }
+</style>
