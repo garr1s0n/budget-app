@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <v-app>
     <v-container>
       <router-view/>
     </v-container>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -18,6 +18,7 @@ export default {
   body {
     background: url('./assets/images/background.jpg') no-repeat center fixed;
     font-family: 'Roboto', sans-serif;
+    background-size: cover;
     &:after {
       content: '';
       position: fixed;
@@ -28,6 +29,9 @@ export default {
       background-color: $background-tint;
       opacity: .3;
       z-index: -1;
+    }
+    .application {
+      background: none;
     }
   }
 </style>
